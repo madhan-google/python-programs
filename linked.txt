@@ -1,0 +1,35 @@
+import random
+import time
+class node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+def insert(head,data):
+    newnode = node(data)
+    if head is None:
+        head = newnode
+    else:
+        tail = head
+        while tail.next is not None:
+            tail = tail.next
+        tail.next = newnode
+    return head
+def printlist(head):
+    if head is not None:
+        curr = head
+        while curr is not None:
+            time.sleep(.3)
+            print(curr.data,end="-> ")
+            curr = curr.next
+#main
+head = None
+n = int(input("enter size: "))
+print("elements are: ")
+for i in range(n):
+    val = random.randint(1,n*10)
+    head = insert(head,val)
+    time.sleep(.3)
+    print(val,end=" ")
+print("\nList elements are: ")
+printlist(head)
+    
